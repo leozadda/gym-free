@@ -1,0 +1,198 @@
+/* Modern Attendance Dashboard - Inspired by Apple Design Language
+ * Features minimalist design, clean typography, and subtle animations
+ * Uses system font stack for optimal rendering across platforms
+ */
+
+ :root {
+  --primary-blue: #007AFF;
+  --secondary-blue: #5856D6;
+  --success-green: #34C759;
+  --warning-orange: #FF9500;
+  --danger-red: #FF3B30;
+  --background-primary: #FFFFFF;
+  --background-secondary: #F2F2F7;
+  --text-primary: #000000;
+  --text-secondary: #6E6E73;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+/* Base Styles */
+body, html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Upload Section Styling */
+.upload-section {
+  background-color: var(--background-primary);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed);
+}
+
+.upload-section:hover {
+  transform: translateY(-2px);
+}
+
+.upload-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* Button and Input Styling */
+.button-primary {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.button-primary:hover {
+  background-color: var(--secondary-blue);
+  transform: translateY(-1px);
+}
+
+.file-input {
+  display: none;
+}
+
+.text-area {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #E5E5EA;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dashboard-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--background-primary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0.5rem 0;
+}
+
+/* Chart Grid */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background-color: var(--background-primary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  transition: all var(--transition-speed);
+}
+
+.chart-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Chart Customization */
+.recharts-default-tooltip {
+  background-color: var(--background-primary) !important;
+  border-radius: var(--border-radius) !important;
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #E5E5EA !important;
+}
+
+.recharts-text {
+  fill: var(--text-secondary) !important;
+}
